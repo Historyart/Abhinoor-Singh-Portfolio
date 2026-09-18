@@ -5,11 +5,13 @@ const experienceItems = [
         company: "NeuSpaarX Tehnologies Pvt Ltd.",
         duration: "Lorem Ipsum",
         image: "",
+        link: "/experience/neuspaarx",
     },
     {
         company: "NeuSpaarX Tehnologies Pvt Ltd.",
         duration: "Lorem Ipsum",
         image: "",
+        link: "#",
     },
 ];
 
@@ -17,10 +19,12 @@ function ExperienceBlock({
     company,
     duration,
     image,
+    link,
 }: {
     company: string;
     duration: string;
     image: string;
+    link: string;
 }) {
     return (
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
@@ -39,14 +43,14 @@ function ExperienceBlock({
                 </h2>
 
                 <div className="flex items-end justify-between">
-
-                    href="#"
-                    className="w-fit border-b border-black pb-[20px] font-satoshi text-[33px] tracking-[0.02em] text-black no-underline"
-                    <a>
+                    <a
+                        href={link}
+                        className="w-fit border-b border-black pb-[20px] font-satoshi text-[33px] tracking-[0.02em] text-black no-underline"
+                    >
                         KNOW MORE
                     </a>
 
-                    <p className="text-right font-satoshi text-[clamp(1.25rem,2.4vw,2.875rem)] font-medium leading-[1.087] tracking-[0.012em] text-black">
+                    <p className="whitespace-nowrap text-right font-satoshi text-[clamp(1.25rem,2.4vw,2.875rem)] font-medium leading-[1.087] tracking-[0.012em] text-black">
                         Duration
                         <br />
                         {duration}
