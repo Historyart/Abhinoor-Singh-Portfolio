@@ -1,5 +1,6 @@
 import React from "react";
 import SiteNav from "@/components/portfolio/SiteNav";
+import { Link } from "react-router-dom";
 
 const VINYL_IMG =
   "https://api.builder.io/api/v1/image/assets/TEMP/ab9bf6eee4fafd16c856cf6e47db1fa9057ad71a?width=700";
@@ -199,14 +200,14 @@ in UI/UX design with a focus on product design and usability.
 
           <div className="hidden lg:flex lg:absolute lg:left-0 lg:bottom-[675px] lg:flex-col lg:gap-[150px]">
             <span className="ml-[252px] w-fit font-melodrama text-[141px] font-medium tracking-widest text-black/70 line-through decoration-1 lg:leading-[90.5px]">
-              Ø1
+              None
             </span>
-            <a
-              href="#experience"
+            <Link
+              to="/Projects"
               className="ml-[200px] w-fit border-b border-black pb-[20px] font-satoshi text-[33px] tracking-[0.02em] text-black no-underline"
             >
               KNOW MORE
-            </a>
+            </Link>
           </div>
 
           {/* rectangle — stops exactly at 2nd vertical line */}
@@ -219,8 +220,8 @@ in UI/UX design with a focus on product design and usability.
 
           {/* Heading — between 2nd and 3rd horizontal lines, 901px from left */}
           <h3 className="hidden lg:block lg:absolute lg:left-[870px] lg:top-[140px] lg:right-[80px] font-melodrama font-normal text-black lg:text-[87px] lg:leading-[90.5px]">
-  <span className="font-medium">PawPlanner</span>
-  <span> | Taking care of dogs easy.</span>
+  <span className="font-medium">Projects part</span>
+  <span> Lorem ipsum dolor santi</span>
 </h3>
 
           {/* Paragraph — same Y level as left rectangle (462px), 20px gap from heading handled via top offset */}

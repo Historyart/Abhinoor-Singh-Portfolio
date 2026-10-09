@@ -87,6 +87,113 @@ export default function ExperienceDetailCompany1() {
           <div className="aspect-[648/1327] w-full flex-none bg-portfolio-gray200 lg:w-[33.75%] lg:max-w-[648px]" />
         </section>
       </main>
+      {/* Footer */}
+      <footer
+        id="footer"
+        className="relative w-full bg-[#D9D9D9] px-[100px] pt-[100px] pb-[100px]"
+      >
+        {/* Back to top */}
+        <div className="absolute right-[100px] top-[100px] flex items-center gap-5">
+          <button
+            onClick={() => {
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
+            className="group flex items-center gap-5 border-0 bg-transparent p-0"
+            aria-label="Back to top"
+          >
+            <span className="font-satoshi text-[33px] font-bold leading-[40px] tracking-[0.05em] text-black">
+              BACK TO TOP
+            </span>
+
+            <span className="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-[#A49B9D]">
+              <svg
+                width="38"
+                height="38"
+                viewBox="0 0 38 38"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+                aria-hidden="true"
+              >
+                <path
+                  d="M19 30V8"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                />
+                <path
+                  d="M8 19L19 8L30 19"
+                  stroke="white"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
+          </button>
+        </div>
+
+        {/* Main footer content */}
+        <div className="flex flex-col gap-[90px]">
+          {/* Let's Talk */}
+          <div className="flex flex-col gap-[90px]">
+            <h2 className="font-satoshi text-[141px] font-medium leading-[150px] tracking-normal text-black">
+              LET’S TALK
+            </h2>
+
+            {/* Links */}
+            <div className="flex items-start gap-[35px]">
+              <a
+                href="#"
+                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
+              >
+                GitHub
+              </a>
+
+              <a
+                href="#"
+                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
+              >
+                LinkedIn
+              </a>
+
+              <a
+                href="#"
+                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
+              >
+                Resume
+              </a>
+
+              <a
+                href="#"
+                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
+              >
+                Mail
+              </a>
+            </div>
+          </div>
+
+          {/* Bottom information */}
+          <div className="flex items-end justify-between">
+            {/* Copyright */}
+            <p className="m-0 font-satoshi text-[20px] font-normal leading-[40px] tracking-[0.03em] text-black">
+              © 2026 ABHINOOR SINGH
+            </p>
+
+            {/* Designed and developed */}
+            <p className="m-0 font-satoshi text-[20px] font-normal leading-[40px] tracking-[0.03em] text-black">
+              Designed and Developed
+              <br />
+              by{" "}
+              <span className="font-bold">
+                Abhinoor Singh
+              </span>
+            </p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
