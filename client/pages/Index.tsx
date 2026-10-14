@@ -1,5 +1,6 @@
 import React from "react";
 import SiteNav from "@/components/portfolio/SiteNav";
+import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
 import { Link } from "react-router-dom";
 
 const VINYL_IMG =
@@ -44,16 +45,16 @@ function VinylCard({
     <div
       className={`flex w-full max-w-[350px] flex-col items-start gap-6 sm:gap-8 ${offset}`}
     >
-      <img
+            <img
         src={VINYL_IMG}
         alt=""
-        className="aspect-square w-40 rounded-full object-cover sm:w-52 lg:w-full"
+        className="vinyl-spin aspect-square w-40 rounded-full object-cover sm:w-52 lg:w-full"
       />
 
       <div className="flex flex-col gap-2 text-center sm:gap-4">
         <h3 className="font-satoshi text-2xl font-medium tracking-[0.05em] text-black sm:text-4xl lg:text-[38px]">
-  {title}
-</h3>
+          {title}
+        </h3>
 
         <p className="font-satoshi text-[20px] leading-relaxed text-black/80">
           {copy}
@@ -117,30 +118,30 @@ function DesignSystemCard({
       />
 
       <h3 className="font-satoshi text-[33px] font-bold leading-[40px] tracking-[0.05em] text-black">
-  {title}
-</h3>
+        {title}
+      </h3>
 
-<div className="grid grid-cols-2 gap-4 sm:gap-6">
-  <p className="font-satoshi text-[20px] font-normal leading-[30px] tracking-[0.05em] text-black">
-    {skills.map((skill, i) => (
-      <React.Fragment key={skill}>
-        {skill}
-        {i < skills.length - 1 && <br />}
-      </React.Fragment>
-    ))}
-  </p>
+      <div className="grid grid-cols-2 gap-4 sm:gap-6">
+        <p className="font-satoshi text-[20px] font-normal leading-[30px] tracking-[0.05em] text-black">
+          {skills.map((skill, i) => (
+            <React.Fragment key={skill}>
+              {skill}
+              {i < skills.length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
 
-  <p className="font-satoshi text-[20px] font-normal leading-[30px] tracking-[0.05em] text-black">
-    <span className="underline">Applied in</span>
-    <br />
-    {applied.map((item, i) => (
-      <React.Fragment key={item}>
-        {item}
-        {i < applied.length - 1 && <br />}
-      </React.Fragment>
-    ))}
-  </p>
-</div>
+        <p className="font-satoshi text-[20px] font-normal leading-[30px] tracking-[0.05em] text-black">
+          <span className="underline">Applied in</span>
+          <br />
+          {applied.map((item, i) => (
+            <React.Fragment key={item}>
+              {item}
+              {i < applied.length - 1 && <br />}
+            </React.Fragment>
+          ))}
+        </p>
+      </div>
     </div>
   );
 }
@@ -158,19 +159,25 @@ export default function Index() {
           </h1>
 
           <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-12">
-            <div className="h-[280px] w-full rounded-tr-[60px] rounded-bl-[30px] bg-portfolio-gray200 sm:h-[420px] lg:-ml-20 lg:h-[667px] lg:flex-1 lg:rounded-none lg:rounded-tr-[100px] lg:rounded-br-[50px]" />
+            <HeroSlideshow className="h-[280px] w-full rounded-tr-[60px] rounded-bl-[30px] sm:h-[420px] lg:-ml-20 lg:h-[667px] lg:flex-1 lg:rounded-none lg:rounded-tr-[100px] lg:rounded-br-[50px]" />
 
-            <div className="flex w-full flex-col justify-between gap-10 lg:h-[667px] lg:w-[600px] lg:flex-none lg:gap-0">
+                        <div className="flex w-full flex-col justify-between gap-10 lg:h-[667px] lg:w-[600px] lg:flex-none lg:gap-0">
               <div className="flex flex-col gap-6 sm:gap-10">
                 <h2 className="whitespace-nowrap font-satoshi text-4xl font-light tracking-wide text-portfolio-ink sm:text-6xl lg:text-[5.4375rem]">
                   Abhinoor Singh
                 </h2>
                 <p className="font-satoshi text-base leading-loose tracking-wide text-portfolio-ink sm:text-lg lg:text-xl">
                   I am a 4th-year B.Tech (CSE-DS) student from GGSIPU, working
-in UI/UX design with a focus on product design and usability.
+                  in UI/UX design with a focus on product design and usability.
                 </p>
               </div>
-              <div className="mt-10 h-[220px] w-full bg-portfolio-gray100 sm:h-[300px] lg:mt-0 lg:h-[415px] lg:w-[600px] lg:flex-none" />
+
+<div className="mt-10 h-[220px] w-full overflow-hidden rounded-[20px] bg-portfolio-gray100 sm:h-[300px] lg:mt-0 lg:h-[415px] lg:w-[600px] lg:flex-none">                <img
+                  src="/images/IMG-20260102-WA0009.jpg"
+                  alt="Abhinoor Singh"
+                  className="h-full w-full origin-top scale-[1.2] object-cover object-top"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -220,17 +227,17 @@ in UI/UX design with a focus on product design and usability.
 
           {/* Heading — between 2nd and 3rd horizontal lines, 901px from left */}
           <h3 className="hidden lg:block lg:absolute lg:left-[870px] lg:top-[140px] lg:right-[80px] font-melodrama font-normal text-black lg:text-[87px] lg:leading-[90.5px]">
-  <span className="font-medium">Projects part</span>
-  <span> Lorem ipsum dolor santi</span>
-</h3>
+            <span className="font-medium">Projects part</span>
+            <span> Lorem ipsum dolor santi</span>
+          </h3>
 
           {/* Paragraph — same Y level as left rectangle (462px), 20px gap from heading handled via top offset */}
           <p className="hidden lg:block lg:absolute lg:left-[900px] lg:top-[462px] lg:right-[0px] font-satoshi font-normal text-black/80 lg:text-[20px] lg:leading-[40px] lg:tracking-[0.02em]">
             PawPlanner is a dog-care companion designed to help owners
-manage their dog's everyday routine in one place. From walks
-and feeding to grooming, health and recurring tasks, the product
-brings everyday care into a simple, organised experience built
-with first-time and busy dog parents in mind.
+            manage their dog's everyday routine in one place. From walks
+            and feeding to grooming, health and recurring tasks, the product
+            brings everyday care into a simple, organised experience built
+            with first-time and busy dog parents in mind.
           </p>
 
           {/* Right rectangle — same top as left rectangle, flexible width, touches right edge */}
@@ -238,12 +245,12 @@ with first-time and busy dog parents in mind.
 
         </section>
 
-{/* Skills */}
-<section className="grid grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4">
-  {designSystems.map((colors, i) => (
-    <DesignSystemCard key={i} {...colors} index={i} />
-  ))}
-</section>
+        {/* Skills */}
+        <section className="grid grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4">
+          {designSystems.map((colors, i) => (
+            <DesignSystemCard key={i} {...colors} index={i} />
+          ))}
+        </section>
 
         {/* About */}
         <section id="about" className="flex flex-col gap-12 lg:flex-row lg:gap-14">
@@ -271,24 +278,24 @@ with first-time and busy dog parents in mind.
           </div>
 
           <div className="flex flex-1 flex-col gap-16 pt-[80px] lg:h-auto lg:max-w-[32.5rem]">
-<p className="font-satoshi text-base leading-loose tracking-wide text-black sm:text-lg">
-  I’m Abhinoor, a UI/UX designer with a background in computer science.
-  I enjoy bringing together design and technology to create digital
-  experiences that feel simple, clear and thoughtful.
-</p>
+            <p className="font-satoshi text-base leading-loose tracking-wide text-black sm:text-lg">
+              I’m Abhinoor, a UI/UX designer with a background in computer science.
+              I enjoy bringing together design and technology to create digital
+              experiences that feel simple, clear and thoughtful.
+            </p>
 
-<p className="font-satoshi text-base leading-loose tracking-wide text-black sm:text-lg">
-  <span className="text-[24px] font-semibold leading-[30px]">
-    Education
-  </span>
-  <br />
-  B.Tech — Computer Science & Data Science
-  <br />
-  Guru Gobind Singh Indraprastha University
-  <br />
-  2023 — 2027
-</p>
-</div>
+            <p className="font-satoshi text-base leading-loose tracking-wide text-black sm:text-lg">
+              <span className="text-[24px] font-semibold leading-[30px]">
+                Education
+              </span>
+              <br />
+              B.Tech — Computer Science & Data Science
+              <br />
+              Guru Gobind Singh Indraprastha University
+              <br />
+              2023 — 2027
+            </p>
+          </div>
 
           <div className="flex flex-1 flex-col items-end lg:-mr-20">
             <div className="flex flex-col sm:flex-row">

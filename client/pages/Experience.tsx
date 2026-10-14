@@ -1,16 +1,20 @@
 import SiteNav from "@/components/portfolio/SiteNav";
+import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
 
 const experienceItems = [
     {
         company: "NeuSpaarX Tehnologies Pvt Ltd.",
-        duration: "Lorem Ipsum",
-        image: "",
+        duration: "6 months",
+        images: [
+            { src: "/images/imac-24.png", alt: "iMac 24 inch mockup" },
+            { src: "/images/nokia-xr21.png", alt: "Nokia XR21 mockup" },
+        ],
         link: "/experience/neuspaarx",
     },
     {
         company: "NeuSpaarX Tehnologies Pvt Ltd.",
-        duration: "Lorem Ipsum",
-        image: "",
+        duration: "4 months",
+        images: [],
         link: "#",
     },
 ];
@@ -18,23 +22,20 @@ const experienceItems = [
 function ExperienceBlock({
     company,
     duration,
-    image,
+    images,
     link,
 }: {
     company: string;
     duration: string;
-    image: string;
+    images: { src: string; alt: string }[];
     link: string;
 }) {
     return (
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
-            <div
-                className="aspect-[880/580] w-full flex-none bg-portfolio-gray200 lg:w-[45.8%] lg:max-w-[880px]"
-                style={
-                    image
-                        ? { backgroundImage: `url(${image})`, backgroundSize: "cover", backgroundPosition: "center" }
-                        : undefined
-                }
+                                    <HeroSlideshow
+                slides={images}
+                bgClassName="bg-[#ECF1C4]"
+                className="aspect-[880/580] w-full flex-none rounded-[20px] lg:w-[45.8%] lg:max-w-[880px]"
             />
 
             <div className="flex flex-1 flex-col justify-between gap-8 lg:gap-0">

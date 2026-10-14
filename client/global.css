@@ -126,3 +126,23 @@
     white-space: pre;
   }
 }
+@keyframes vinyl-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.vinyl-spin {
+  animation: vinyl-spin 3.5s linear infinite;
+  animation-play-state: paused;
+}
+
+.vinyl-spin:hover {
+  animation-play-state: running;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vinyl-spin {
+    animation: none;
+  }
+}
