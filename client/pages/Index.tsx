@@ -173,10 +173,9 @@ export default function Index() {
               </div>
 
 <div className="mt-10 h-[220px] w-full overflow-hidden rounded-[20px] bg-portfolio-gray100 sm:h-[300px] lg:mt-0 lg:h-[415px] lg:w-[600px] lg:flex-none">                <img
-                  src="/images/IMG-20260102-WA0009.jpg"
+                  src="/images/profile.jpg"
                   alt="Abhinoor Singh"
-                  className="h-full w-full origin-top scale-[1.2] object-cover object-top"
-                />
+className="h-full w-full object-cover object-center"                />
               </div>
             </div>
           </div>
