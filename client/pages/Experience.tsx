@@ -3,19 +3,25 @@ import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
 
 const experienceItems = [
     {
-        company: "NeuSpaarX Tehnologies Pvt Ltd.",
+        company: "NeuSpaarX Technologies Pvt Ltd.",
         duration: "6 months",
         images: [
             { src: "/images/imac-24.png", alt: "iMac 24 inch mockup" },
             { src: "/images/nokia-xr21.png", alt: "Nokia XR21 mockup" },
         ],
+        bgClassName: "bg-[#ECF1C4]",
         link: "/experience/neuspaarx",
     },
     {
-        company: "NeuSpaarX Tehnologies Pvt Ltd.",
+        company: "Akdenar\nLabs",
         duration: "4 months",
-        images: [],
-        link: "#",
+        images: [
+            { src: "/images/akdenar-iphone-13-pro.png", alt: "iPhone 13 Pro mockup" },
+            { src: "/images/akdenar-iphone-15-pro.png", alt: "iPhone 15 Pro mockup" },
+            { src: "/images/akdenar-iphone-14.png", alt: "iPhone 14 mockup" },
+        ],
+        bgClassName: "bg-[#F1DBC5]",
+        link: "/experience/akdenar",
     },
 ];
 
@@ -23,23 +29,25 @@ function ExperienceBlock({
     company,
     duration,
     images,
+    bgClassName,
     link,
 }: {
     company: string;
     duration: string;
     images: { src: string; alt: string }[];
+    bgClassName: string;
     link: string;
 }) {
     return (
         <div className="flex flex-col gap-8 lg:flex-row lg:gap-12">
-                                    <HeroSlideshow
+            <HeroSlideshow
                 slides={images}
-                bgClassName="bg-[#ECF1C4]"
+                bgClassName={bgClassName}
                 className="aspect-[880/580] w-full flex-none rounded-[20px] lg:w-[45.8%] lg:max-w-[880px]"
             />
 
             <div className="flex flex-1 flex-col justify-between gap-8 lg:gap-0">
-                <h2 className="text-right font-melodrama text-[clamp(2.5rem,7.34vw,8.8125rem)] font-medium leading-[1.06] tracking-[0.012em] text-portfolio-ink">
+                <h2 className="whitespace-pre-line text-right font-melodrama text-[clamp(2.5rem,7.34vw,8.8125rem)] font-medium leading-[1.06] tracking-[0.012em] text-portfolio-ink">
                     {company}
                 </h2>
 

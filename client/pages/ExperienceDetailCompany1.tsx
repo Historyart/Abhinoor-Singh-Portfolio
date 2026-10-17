@@ -147,13 +147,27 @@ export default function ExperienceDetailCompany1() {
 <section className="grid grid-cols-1 gap-10 lg:grid-cols-[1061fr_648fr]">
   {/* Left cluster */}
   <div className="flex flex-col gap-10">
-    {/* 1 — 1061×727 */}
-    <div className="aspect-[1061/727] w-full rounded-[20px] bg-portfolio-gray200" />
+    {/* 1 — 1061×727 (video) */}
+<video
+  src="/images/desktop-32.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="aspect-[1061/727] w-full rounded-[20px] bg-[#ECF1C4] object-cover object-center"
+/>
 
     {/* 3 + 4 */}
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-[356fr_665fr]">
-      {/* 3 — 356×561 */}
-      <div className="aspect-[356/561] w-full rounded-[20px] bg-portfolio-gray200" />
+      {/* 3 — 356×561 (video) */}
+<video
+  src="/images/desktop-3.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  className="aspect-[356/561] w-full rounded-[20px] bg-[#ECF1C4] object-cover object-center"
+/>
 
       {/* 4 — 665×561 (iPhone 13 Pro) */}
 <div className="relative aspect-[665/561] w-full overflow-hidden rounded-[20px] bg-[#ECF1C4] lg:aspect-auto">        <img
@@ -168,7 +182,7 @@ export default function ExperienceDetailCompany1() {
   {/* 2 — 648×1327 (Android) */}
   <div className="relative aspect-[648/1327] w-full overflow-hidden rounded-[20px] bg-portfolio-gray200 lg:aspect-auto">
     <img
-  src="/images/android-compact.png"
+  src="/images/android-compact-hd.png"
   alt="Android app screen"
   className="absolute inset-0 h-full w-full object-cover object-top"
 />
