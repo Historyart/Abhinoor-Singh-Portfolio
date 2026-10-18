@@ -11,7 +11,7 @@ import Experience from "./pages/Experience";
 import ExperienceDetailCompany1 from "./pages/ExperienceDetailCompany1";
 import ExperienceDetailCompany2 from "@/pages/ExperienceDetailCompany2";
 import Projects from "./pages/Projects";
-import ProjectsDetail from "./pages/ProjectsDetail";
+import ProjectsDetail from "./pages/ProjectsDetail1";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();

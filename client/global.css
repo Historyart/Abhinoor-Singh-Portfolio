@@ -146,3 +146,18 @@
     animation: none;
   }
 }
+@keyframes vertical-loop {
+  to {
+    transform: translateY(-50%);
+  }
+}
+
+.vertical-loop {
+  animation: vertical-loop 9s linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .vertical-loop {
+    animation: none;
+  }
+}
