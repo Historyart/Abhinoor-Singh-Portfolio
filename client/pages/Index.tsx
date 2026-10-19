@@ -1,6 +1,7 @@
 import React from "react";
 import SiteNav from "@/components/portfolio/SiteNav";
 import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
+import HelixGallery from "@/components/portfolio/HelixGallery";
 import { Link } from "react-router-dom";
 
 const VINYL_IMG =
@@ -146,6 +147,25 @@ function DesignSystemCard({
   );
 }
 
+const pawplannerImages = [
+  "/images/pawplanner/1.png",
+  "/images/pawplanner/2.png",
+  "/images/pawplanner/3.png",
+  "/images/pawplanner/4.png",
+  "/images/pawplanner/5.png",
+  "/images/pawplanner/6.png",
+  "/images/pawplanner/7.png",
+  "/images/pawplanner/8.png",
+  "/images/pawplanner/9.png",
+  "/images/pawplanner/10.png",
+];
+
+const projectSlides = [
+  { src: "/images/projects/slide-1.png", alt: "PawPlanner screen" },
+  { src: "/images/projects/slide-2.png", alt: "PawPlanner banner" },
+  { src: "/images/projects/slide-3.png", alt: "PawPlanner frame" },
+];
+
 export default function Index() {
   return (
     <div className="min-h-screen overflow-x-hidden bg-portfolio-bg">
@@ -191,58 +211,38 @@ className="h-full w-full object-cover object-center"                />
           ))}
         </section>
 
-        {/* 01 / Know more */}
-        <section className="relative flex flex-col gap-12 lg:h-[1045px] lg:gap-0">
-          {/* grid lines — desktop only */}
-          <div className="pointer-events-none absolute inset-0 hidden lg:block">
-            <div className="absolute left-[-80px] right-[-80px] top-[4px] h-px bg-[#292E1E]/20" />
-            <div className="absolute left-[-80px] right-[-80px] top-[154px] h-px bg-[#292E1E]/20" />
-            <div className="absolute left-[-80px] right-[-80px] top-[308px] h-px bg-[#292E1E]/20" />
-            <div className="absolute left-[-80px] right-[-80px] top-[462px] h-px bg-[#292E1E]/20" />
-            <div className="absolute left-[-80px] right-[-80px] top-[693px] h-px bg-[#292E1E]/20" />
-            <div className="absolute bottom-0 top-0 left-[408px] w-px bg-[#292E1E]/20" />
-            <div className="absolute bottom-0 top-0 left-[868px] w-px bg-[#292E1E]/20" />
-          </div>
+                {/* Projects */}
+<section className="-mx-6 flex flex-col gap-6 sm:-mx-10 lg:-mx-20 lg:flex-row lg:gap-0">
+  {/* Left: helix gallery */}
+<div className="relative order-2 aspect-[4/3] w-full overflow-hidden bg-portfolio-bg lg:order-none lg:aspect-[868/916] lg:w-[45.21%] lg:flex-none">
+  <HelixGallery images={pawplannerImages} className="h-full w-full" />
 
-          <div className="hidden lg:flex lg:absolute lg:left-0 lg:bottom-[675px] lg:flex-col lg:gap-[150px]">
-            <span className="ml-[252px] w-fit font-melodrama text-[141px] font-medium tracking-widest text-black/70 line-through decoration-1 lg:leading-[90.5px]">
-              None
-            </span>
-            <Link
-              to="/Projects"
-              className="ml-[200px] w-fit border-b border-black pb-[20px] font-satoshi text-[33px] tracking-[0.02em] text-black no-underline"
-            >
-              KNOW MORE
-            </Link>
-          </div>
+  {/* Subtle inner shadow, top and bottom */}
+  <div className="pointer-events-none absolute inset-0 shadow-[inset_0_14px_14px_-14px_rgba(0,0,0,0.12),inset_0_-14px_14px_-14px_rgba(0,0,0,0.12)]" />
+</div>
 
-          {/* rectangle — stops exactly at 2nd vertical line */}
-          <div className="hidden lg:block lg:absolute lg:left-[-80px] lg:w-[948px] lg:top-[462px] lg:h-[578px] lg:rounded-tr-[100px] bg-portfolio-gray200" />
-          {/* mobile/tablet fallback — untouched for now */}
-          <div className="flex flex-col gap-1 sm:flex-row lg:hidden">
-            <div className="h-[220px] w-full bg-portfolio-gray200 sm:h-[18rem] sm:flex-[3]" />
-            <div className="h-[180px] w-full bg-portfolio-gray100 sm:h-[18rem] sm:flex-[2]" />
-          </div>
+  {/* Right column: text, vertically centered */}
+<div className="contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col">
+  <div className="order-1 flex flex-col justify-center gap-8 px-6 shadow-[inset_0_14px_14px_-14px_rgba(0,0,0,0.12)] sm:px-10 lg:order-none lg:flex-1 lg:gap-16 lg:px-[30px] lg:py-[30px]">
+    <h3 className="font-melodrama text-[clamp(2.25rem,9vw,4rem)] leading-[1.05] text-black lg:text-[clamp(2rem,4.53vw,87px)] lg:leading-[1.04]">
+      <span className="font-medium">Designing experiences, exploring creativity</span>
+    </h3>
 
-          {/* Heading — between 2nd and 3rd horizontal lines, 901px from left */}
-          <h3 className="hidden lg:block lg:absolute lg:left-[870px] lg:top-[140px] lg:right-[80px] font-melodrama font-normal text-black lg:text-[87px] lg:leading-[90.5px]">
-            <span className="font-medium">Projects part</span>
-            <span> Lorem ipsum dolor santi</span>
-          </h3>
+    <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-[clamp(1rem,2vw,40px)]">
+      <Link
+        to="/projects"
+        className="w-fit flex-none border-b border-black pb-3 font-satoshi text-xl tracking-[0.02em] text-black no-underline sm:text-2xl lg:pb-5 lg:text-[clamp(1.25rem,1.72vw,33px)]"
+      >
+        KNOW MORE
+      </Link>
 
-          {/* Paragraph — same Y level as left rectangle (462px), 20px gap from heading handled via top offset */}
-          <p className="hidden lg:block lg:absolute lg:left-[900px] lg:top-[462px] lg:right-[0px] font-satoshi font-normal text-black/80 lg:text-[20px] lg:leading-[40px] lg:tracking-[0.02em]">
-            PawPlanner is a dog-care companion designed to help owners
-            manage their dog's everyday routine in one place. From walks
-            and feeding to grooming, health and recurring tasks, the product
-            brings everyday care into a simple, organised experience built
-            with first-time and busy dog parents in mind.
-          </p>
-
-          {/* Right rectangle — same top as left rectangle, flexible width, touches right edge */}
-          <div className="hidden lg:block lg:absolute lg:left-[868px] lg:right-[-80px] lg:top-[698px] lg:h-[347px] bg-portfolio-gray100" />
-
-        </section>
+      <p className="font-satoshi text-base leading-loose tracking-[0.02em] text-black/80 sm:text-lg lg:text-[clamp(14px,1.04vw,20px)] lg:leading-[2]">
+   From building PawPlanner from the ground up to reimagining existing digital experiences, each project is an opportunity to explore ideas and solve problems through design. Beyond product design, I've also created magazine covers, visual identities, and graphics for college societies. Different projects, different challenges, all connected by a love for thoughtful design and visual storytelling.
+      </p>
+    </div>
+  </div>
+  </div>
+</section>
 
         {/* Skills */}
         <section className="grid grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4">
