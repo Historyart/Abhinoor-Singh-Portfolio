@@ -8,7 +8,7 @@ export default function Projects() {
       <SiteNav />
       <main className="flex flex-col gap-24 px-6 pb-32 sm:px-10 lg:px-20">
         {projects.map((project) => (
-          <ProjectCard key={project.slug} {...project} />
+          <ProjectCard key={project.slug} slug={project.slug} />
         ))}
       </main>
     </div>

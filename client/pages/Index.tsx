@@ -101,8 +101,8 @@ function DesignSystemCard({
 
   const { title, skills, applied } = cardContent[index];
 
-  return (
-    <div className="relative flex w-full flex-col gap-10 border border-black bg-white p-6 pt-10 sm:p-8 sm:pt-12">
+    return (
+    <div className="relative flex w-full min-w-0 flex-col gap-6 border border-black bg-white pb-6 pl-[46px] pr-5 pt-10 sm:gap-10 sm:p-8 sm:pt-12">
       <span
         className="absolute left-0 top-0 h-[30px] w-[30px]"
         style={{ background: corner }}
@@ -118,12 +118,13 @@ function DesignSystemCard({
         style={{ background: side }}
       />
 
-      <h3 className="font-satoshi text-[33px] font-bold leading-[40px] tracking-[0.05em] text-black">
+      <h3 className="font-satoshi text-2xl font-bold leading-[1.2] tracking-[0.05em] text-black sm:text-[28px] lg:text-[33px] lg:leading-[40px]">
         {title}
       </h3>
 
-      <div className="grid grid-cols-2 gap-4 sm:gap-6">
-        <p className="font-satoshi text-[20px] font-normal leading-[30px] tracking-[0.05em] text-black">
+      {/* Columns sit side by side when there's room, and stack when there isn't */}
+      <div className="flex flex-wrap gap-x-6 gap-y-6">
+        <p className="min-w-0 flex-1 basis-[130px] font-satoshi text-base font-normal leading-[26px] tracking-[0.05em] text-black sm:text-[18px] sm:leading-[28px] lg:text-[20px] lg:leading-[30px]">
           {skills.map((skill, i) => (
             <React.Fragment key={skill}>
               {skill}
@@ -132,7 +133,7 @@ function DesignSystemCard({
           ))}
         </p>
 
-        <p className="font-satoshi text-[20px] font-normal leading-[30px] tracking-[0.05em] text-black">
+        <p className="min-w-0 flex-1 basis-[130px] font-satoshi text-base font-normal leading-[26px] tracking-[0.05em] text-black sm:text-[18px] sm:leading-[28px] lg:text-[20px] lg:leading-[30px]">
           <span className="underline">Applied in</span>
           <br />
           {applied.map((item, i) => (
@@ -245,11 +246,11 @@ className="h-full w-full object-cover object-center"                />
 </section>
 
         {/* Skills */}
-        <section className="grid grid-cols-1 gap-10 sm:grid-cols-2 xl:grid-cols-4">
-          {designSystems.map((colors, i) => (
-            <DesignSystemCard key={i} {...colors} index={i} />
-          ))}
-        </section>
+<section className="grid grid-cols-1 gap-6 sm:gap-10 md:grid-cols-2 2xl:grid-cols-4">
+  {designSystems.map((colors, i) => (
+    <DesignSystemCard key={i} {...colors} index={i} />
+  ))}
+</section>
 
         {/* About */}
         <section id="about" className="flex flex-col gap-12 lg:flex-row lg:gap-14">
@@ -306,113 +307,7 @@ className="h-full w-full object-cover object-center"                />
           </div>
         </section>
       </main>
-      {/* Footer */}
-      <footer
-        id="footer"
-        className="relative w-full bg-[#D9D9D9] px-[100px] pt-[100px] pb-[100px]"
-      >
-        {/* Back to top */}
-        <div className="absolute right-[100px] top-[100px] flex items-center gap-5">
-          <button
-            onClick={() => {
-              window.scrollTo({
-                top: 0,
-                behavior: "smooth",
-              });
-            }}
-            className="group flex items-center gap-5 border-0 bg-transparent p-0"
-            aria-label="Back to top"
-          >
-            <span className="font-satoshi text-[33px] font-bold leading-[40px] tracking-[0.05em] text-black">
-              BACK TO TOP
-            </span>
-
-            <span className="flex h-[80px] w-[80px] items-center justify-center rounded-full bg-[#A49B9D]">
-              <svg
-                width="38"
-                height="38"
-                viewBox="0 0 38 38"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                aria-hidden="true"
-              >
-                <path
-                  d="M19 30V8"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                />
-                <path
-                  d="M8 19L19 8L30 19"
-                  stroke="white"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-            </span>
-          </button>
-        </div>
-
-        {/* Main footer content */}
-        <div className="flex flex-col gap-[90px]">
-          {/* Let's Talk */}
-          <div className="flex flex-col gap-[90px]">
-            <h2 className="font-satoshi text-[141px] font-medium leading-[150px] tracking-normal text-black">
-              LET’S TALK
-            </h2>
-
-            {/* Links */}
-            <div className="flex items-start gap-[35px]">
-              <a
-                href="#"
-                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
-              >
-                GitHub
-              </a>
-
-              <a
-                href="#"
-                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
-              >
-                LinkedIn
-              </a>
-
-              <a
-                href="#"
-                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
-              >
-                Resume
-              </a>
-
-              <a
-                href="#"
-                className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
-              >
-                Mail
-              </a>
-            </div>
+      
           </div>
-
-          {/* Bottom information */}
-          <div className="flex items-end justify-between">
-            {/* Copyright */}
-            <p className="m-0 font-satoshi text-[20px] font-normal leading-[40px] tracking-[0.03em] text-black">
-              © 2026 ABHINOOR SINGH
-            </p>
-
-            {/* Designed and developed */}
-            <p className="m-0 font-satoshi text-[20px] font-normal leading-[40px] tracking-[0.03em] text-black">
-              Designed and Developed
-              <br />
-              by{" "}
-              <span className="font-bold">
-                Abhinoor Singh
-              </span>
-            </p>
-          </div>
-        </div>
-      </footer>
-    </div>
   );
 }

@@ -11,7 +11,10 @@ import Experience from "./pages/Experience";
 import ExperienceDetailCompany1 from "./pages/ExperienceDetailCompany1";
 import ExperienceDetailCompany2 from "@/pages/ExperienceDetailCompany2";
 import Projects from "./pages/Projects";
-import ProjectsDetail from "./pages/ProjectsDetail1";
+import ProjectsDetail1 from "./pages/ProjectsDetail1";
+import ProjectsDetail2 from "./pages/ProjectsDetail2";
+import ProjectsDetail3 from "./pages/ProjectsDetail3";
+import Layout from "@/components/portfolio/Layout";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -23,15 +26,20 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/experience" element={<Experience />} />
-          <Route path="/experience/neuspaarx" element={<ExperienceDetailCompany1 />} />
-          <Route path="/experience/akdenar" element={<ExperienceDetailCompany2 />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:slug" element={<ProjectsDetail />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+  <Route element={<Layout />}>
+    <Route path="/" element={<Index />} />
+    <Route path="/experience" element={<Experience />} />
+    <Route path="/experience/neuspaarx" element={<ExperienceDetailCompany1 />} />
+    <Route path="/experience/akdenar" element={<ExperienceDetailCompany2 />} />
+    <Route path="/projects" element={<Projects />} />
+    <Route path="/projects/pawplanner" element={<ProjectsDetail1 />} />
+    <Route path="/projects/redesign" element={<ProjectsDetail2 />} />
+    <Route path="/projects/project-three" element={<ProjectsDetail3 />} />
+  </Route>
+
+  {/* Outside the layout, so the 404 page has no footer */}
+  <Route path="*" element={<NotFound />} />
+</Routes>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

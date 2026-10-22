@@ -1,35 +1,35 @@
 import { Link } from "react-router-dom";
+import { projects } from "@/lib/projects";
 
-export default function ProjectCard({
-  slug,
-  name,
-  description,
-}: {
-  slug: string;
-  name: string;
-  description: string;
-}) {
+export default function ProjectCard({ slug }: { slug: string }) {
+  const project = projects.find((p) => p.slug === slug);
+  const name = project?.name ?? slug;
+
   return (
-    <div className="flex flex-col gap-6 lg:gap-10">
-      <div className="relative aspect-[1760/480] w-full bg-portfolio-gray200">
-        <h2 className="absolute bottom-0 left-0 font-melodrama text-[15vw] font-medium leading-[0.85] tracking-[0.01em] text-portfolio-ink lg:bottom-0 lg:text-[228px] lg:tracking-[0.01em]">
+    <div className="relative aspect-[4/3] w-full overflow-hidden rounded-[20px] bg-portfolio-gray200 sm:aspect-[16/9] md:aspect-[1760/480]">
+      {project?.image && (
+        <img
+          src={project.image}
+          alt={`${name} banner`}
+          className="absolute inset-0 h-full w-full object-cover object-center opacity-60"
+        />
+      )}
+
+      {/* Black tint: strongest at the bottom, fading upward */}
+      <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+
+      {/* Phone/tablet: name with KNOW MORE below it. Desktop (md+): name left, button right. */}
+      <div className="absolute inset-0 flex flex-col items-start justify-end gap-5 px-6 pb-6 sm:px-8 sm:pb-8 md:flex-row md:items-end md:justify-between md:gap-6">
+        <h2 className="whitespace-nowrap font-melodrama text-[clamp(2.5rem,12vw,5rem)] font-medium leading-none tracking-[0.01em] text-white md:text-[clamp(3rem,11.88vw,14.25rem)]">
           {name}
         </h2>
-      </div>
 
-      <div className="flex flex-col gap-6 lg:flex-row lg:items-start lg:justify-between lg:gap-20">
-        <div className="flex-none">
-          <Link
-            to={`/projects/${slug}`}
-            className="w-fit border-b border-black pb-[20px] font-satoshi text-[22px] font-normal leading-[58px] tracking-[0.02em] text-black no-underline"
-          >
-            KNOW MORE
-          </Link>
-        </div>
-
-        <p className="flex-1 font-satoshi text-[20px] font-normal leading-[31px] tracking-[0.02em] text-black/80 lg:max-w-[760px]">
-          {description}
-        </p>
+        <Link
+          to={`/projects/${slug}`}
+          className="w-fit flex-none border-b border-white pb-2 font-satoshi text-xl tracking-[0.02em] text-white no-underline sm:text-2xl md:pb-3 lg:pb-5 lg:text-[clamp(1.25rem,1.72vw,33px)]"
+        >
+          KNOW MORE
+        </Link>
       </div>
     </div>
   );

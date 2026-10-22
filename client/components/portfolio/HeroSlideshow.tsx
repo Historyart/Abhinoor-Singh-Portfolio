@@ -1,6 +1,11 @@
 import { useEffect, useRef, useState } from "react";
 
-type Slide = { src: string; alt: string; type?: "image" | "video" };
+type Slide = {
+  src: string;
+  alt: string;
+  type?: "image" | "video";
+  fit?: "cover" | "contain";
+};
 
 const defaultSlides: Slide[] = [
   { src: "/images/macbook-air.png", alt: "MacBook Air mockup" },
@@ -56,7 +61,14 @@ export default function HeroSlideshow({
       onMouseLeave={() => setPaused(false)}
     >
       {slides.map((slide, i) => {
-                const visibility = `absolute inset-0 h-full w-full ${imgClassName} transition-opacity duration-700 ${
+                        const fitClass =
+          slide.fit === "contain"
+            ? "object-contain"
+            : slide.fit === "cover"
+              ? "object-cover"
+              : imgClassName;
+
+        const visibility = `absolute inset-0 h-full w-full ${fitClass} transition-opacity duration-700 ${
           i === index ? "opacity-100" : "opacity-0"
         }`;
 
