@@ -15,6 +15,7 @@ import ProjectsDetail1 from "./pages/ProjectsDetail1";
 import ProjectsDetail2 from "./pages/ProjectsDetail2";
 import ProjectsDetail3 from "./pages/ProjectsDetail3";
 import Layout from "@/components/portfolio/Layout";
+import AboutMe from "./pages/aboutme";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -35,6 +36,7 @@ const App = () => (
     <Route path="/projects/pawplanner" element={<ProjectsDetail1 />} />
     <Route path="/projects/redesign" element={<ProjectsDetail2 />} />
     <Route path="/projects/project-three" element={<ProjectsDetail3 />} />
+    <Route path="/about" element={<AboutMe />} />
   </Route>
 
   {/* Outside the layout, so the 404 page has no footer */}
