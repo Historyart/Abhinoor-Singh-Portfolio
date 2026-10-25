@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import { projects } from "@/lib/projects";
+import FlowButton from "@/components/ui/flow-button";
 
 export default function ProjectCard({ slug }: { slug: string }) {
   const project = projects.find((p) => p.slug === slug);
@@ -24,12 +24,12 @@ export default function ProjectCard({ slug }: { slug: string }) {
           {name}
         </h2>
 
-        <Link
-          to={`/projects/${slug}`}
-          className="w-fit flex-none border-b border-white pb-2 font-satoshi text-xl tracking-[0.02em] text-white no-underline sm:text-2xl md:pb-3 lg:pb-5 lg:text-[clamp(1.25rem,1.72vw,33px)]"
-        >
-          KNOW MORE
-        </Link>
+        <FlowButton
+  text="KNOW MORE"
+  to={`/projects/${slug}`}
+  className="border-white text-white [&_svg]:stroke-white"
+/>
+
       </div>
     </div>
   );

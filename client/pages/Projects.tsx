@@ -1,6 +1,7 @@
 import SiteNav from "@/components/portfolio/SiteNav";
 import ProjectCard from "@/components/portfolio/projectCard";
 import { projects } from "@/lib/projects";
+import FlowButton from "@/components/ui/flow-button";
 
 export default function Projects() {
   return (

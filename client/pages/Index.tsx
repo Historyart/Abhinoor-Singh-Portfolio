@@ -3,6 +3,7 @@ import SiteNav from "@/components/portfolio/SiteNav";
 import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
 import HelixGallery from "@/components/portfolio/HelixGallery";
 import { Link } from "react-router-dom";
+import FlowButton from "@/components/ui/flow-button";
 
 const VINYL_IMG =
   "https://api.builder.io/api/v1/image/assets/TEMP/ab9bf6eee4fafd16c856cf6e47db1fa9057ad71a?width=700";
@@ -172,8 +173,7 @@ export default function Index() {
     <div className="min-h-screen overflow-x-hidden bg-portfolio-bg">
       <SiteNav />
 
-      <main id="home" className="flex flex-col gap-32 px-6 sm:px-10 md:gap-40 lg:gap-[162px] lg:px-20">
-        {/* Hero */}
+<main id="home" className="flex flex-col gap-32 px-6 pb-[100px] sm:px-10 md:gap-40 lg:gap-[162px] lg:px-20">        {/* Hero */}
         <section className="flex flex-col gap-16">
           <h1 className="-ml-1 font-melodrama text-[3.5rem] font-medium leading-none tracking-wide text-portfolio-ink sm:-ml-5 sm:text-[6rem] md:text-[9rem] lg:-ml-[60px] lg:text-[14.25rem]">
             PORTFOLIO
@@ -222,26 +222,21 @@ className="h-full w-full object-cover object-center"                />
   <div className="pointer-events-none absolute inset-0 shadow-[inset_0_14px_14px_-14px_rgba(0,0,0,0.12),inset_0_-14px_14px_-14px_rgba(0,0,0,0.12)]" />
 </div>
 
-  {/* Right column: text, vertically centered */}
-<div className="contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col">
-  <div className="order-1 flex flex-col justify-center gap-8 px-6 shadow-[inset_0_14px_14px_-14px_rgba(0,0,0,0.12)] sm:px-10 lg:order-none lg:flex-1 lg:gap-16 lg:px-[30px] lg:py-[30px]">
-    <h3 className="font-melodrama text-[clamp(2.25rem,9vw,4rem)] leading-[1.05] text-black lg:text-[clamp(2rem,4.53vw,87px)] lg:leading-[1.04]">
-      <span className="font-medium">Designing experiences, exploring creativity</span>
-    </h3>
+       {/* Right column: text, vertically centered */}
+  <div className="contents lg:flex lg:min-w-0 lg:flex-1 lg:flex-col">
+    <div className="order-1 flex flex-col justify-center gap-8 px-6 shadow-[inset_0_14px_14px_-14px_rgba(0,0,0,0.12)] sm:px-10 lg:order-none lg:flex-1 lg:gap-16 lg:px-[30px] lg:py-[30px]">
+      <h3 className="font-melodrama text-[clamp(2.25rem,9vw,4rem)] leading-[1.05] text-black lg:text-[clamp(2rem,4.53vw,87px)] lg:leading-[1.04]">
+        <span className="font-medium">Designing experiences, exploring creativity</span>
+      </h3>
 
-    <div className="flex flex-col gap-8 lg:flex-row lg:items-start lg:gap-[clamp(1rem,2vw,40px)]">
-      <Link
-        to="/projects"
-        className="w-fit flex-none border-b border-black pb-3 font-satoshi text-xl tracking-[0.02em] text-black no-underline sm:text-2xl lg:pb-5 lg:text-[clamp(1.25rem,1.72vw,33px)]"
-      >
-        KNOW MORE
-      </Link>
+      <div className="flex flex-col gap-8">
+        <p className="font-satoshi text-base leading-loose tracking-[0.02em] text-black/80 sm:text-lg lg:text-[clamp(14px,1.04vw,20px)] lg:leading-[2]">
+          From building PawPlanner from the ground up to reimagining existing digital experiences, each project is an opportunity to explore ideas and solve problems through design. Beyond product design, I've also created magazine covers, visual identities, and graphics for college societies. Different projects, different challenges, all connected by a love for thoughtful design and visual storytelling.
+        </p>
 
-      <p className="font-satoshi text-base leading-loose tracking-[0.02em] text-black/80 sm:text-lg lg:text-[clamp(14px,1.04vw,20px)] lg:leading-[2]">
-   From building PawPlanner from the ground up to reimagining existing digital experiences, each project is an opportunity to explore ideas and solve problems through design. Beyond product design, I've also created magazine covers, visual identities, and graphics for college societies. Different projects, different challenges, all connected by a love for thoughtful design and visual storytelling.
-      </p>
+        <FlowButton text="KNOW MORE" to="/projects" />
+      </div>
     </div>
-  </div>
   </div>
 </section>
 
@@ -252,60 +247,6 @@ className="h-full w-full object-cover object-center"                />
   ))}
 </section>
 
-        {/* About */}
-        <section id="about" className="flex flex-col gap-12 lg:flex-row lg:gap-14">
-          <div className="flex flex-row items-start gap-4 sm:gap-6 lg:flex-col">
-            <div className="flex-1 flex flex-col gap-10 pl-[11px] pr-[19px] pt-[80px] pb-0 text-center">              {"ABOUT".split("").map((l, i) => (
-              <div
-                key={i}
-                className="font-satoshi text-[141px] font-medium leading-[0.95] text-black"
-              >
-                {l}
-              </div>
-            ))}
-            </div>
-          </div>
-
-          <div className="flex flex-1 flex-col gap-10 rounded-t-[30px] bg-portfolio-gray300 pl-[11px] pr-[19px] pt-[80px] text-center sm:rounded-t-[50px] lg:h-auto lg:max-w-[14rem]">
-            {"ME".split("").map((l, i) => (
-              <div
-                key={i}
-                className="font-satoshi text-[141px] font-medium leading-[0.95] text-black"
-              >
-                {l}
-              </div>
-            ))}
-          </div>
-
-          <div className="flex flex-1 flex-col gap-16 pt-[80px] lg:h-auto lg:max-w-[32.5rem]">
-            <p className="font-satoshi text-base leading-loose tracking-wide text-black sm:text-lg">
-              I’m Abhinoor, a UI/UX designer with a background in computer science.
-              I enjoy bringing together design and technology to create digital
-              experiences that feel simple, clear and thoughtful.
-            </p>
-
-            <p className="font-satoshi text-base leading-loose tracking-wide text-black sm:text-lg">
-              <span className="text-[24px] font-semibold leading-[30px]">
-                Education
-              </span>
-              <br />
-              B.Tech — Computer Science & Data Science
-              <br />
-              Guru Gobind Singh Indraprastha University
-              <br />
-              2023 — 2027
-            </p>
-          </div>
-
-          <div className="flex flex-1 flex-col items-end lg:-mr-20">
-            <div className="flex flex-col sm:flex-row">
-              <div className="h-[391px] w-[543.78px] rounded-l-[50px] bg-portfolio-gray100" />
-              <div className="h-[392px] w-[269.35px] bg-portfolio-gray300" />
-            </div>
-            <div className="h-[432px] w-[704.37px] bg-portfolio-gray400" />
-            <div className="h-[323px] w-[813px] rounded-tl-[50px] bg-portfolio-gray300" />
-          </div>
-        </section>
       </main>
       
           </div>

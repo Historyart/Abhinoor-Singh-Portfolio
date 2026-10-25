@@ -1,5 +1,6 @@
 import SiteNav from "@/components/portfolio/SiteNav";
 import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
+import FlowButton from "@/components/ui/flow-button";
 
 const experienceItems = [
     {
@@ -52,12 +53,7 @@ function ExperienceBlock({
                 </h2>
 
                 <div className="flex items-end justify-between">
-                    <a
-                        href={link}
-                        className="w-fit border-b border-black pb-[20px] font-satoshi text-[33px] tracking-[0.02em] text-black no-underline"
-                    >
-                        KNOW MORE
-                    </a>
+                    <FlowButton text="KNOW MORE" to={link} />
 
                     <p className="whitespace-nowrap text-right font-satoshi text-[clamp(1.25rem,2.4vw,2.875rem)] font-medium leading-[1.087] tracking-[0.012em] text-black">
                         Duration
