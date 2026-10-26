@@ -189,6 +189,10 @@
   animation-play-state: running;
 }
 
+.vinyl-spin.is-playing {
+  animation-play-state: running;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .vinyl-spin {
     animation: none;
@@ -208,4 +212,9 @@
   .vertical-loop {
     animation: none;
   }
+}
+
+html.custom-cursor,
+html.custom-cursor * {
+  cursor: none !important;
 }

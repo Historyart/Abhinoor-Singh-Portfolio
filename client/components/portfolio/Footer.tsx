@@ -1,8 +1,12 @@
 const links = [
-  { label: "GitHub", href: "#" },
-  { label: "LinkedIn", href: "#" },
-  { label: "Resume", href: "#" },
-  { label: "Mail", href: "#" },
+  { label: "Behance", href: "https://www.behance.net/abhinoorsingh3", newTab: true },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/ab-singh-j1106/", newTab: true },
+  { label: "Resume", href: "/Abhinoor_Singh_Resume.pdf", newTab: true },
+  {
+  label: "Mail",
+  href: "https://mail.google.com/mail/?view=cm&fs=1&to=panesarab@gmail.com",
+  newTab: true,
+},
 ];
 
 export default function Footer() {
@@ -31,8 +35,8 @@ export default function Footer() {
         <span className="font-satoshi text-sm font-bold tracking-[0.05em] text-black sm:text-xl lg:text-[clamp(1.25rem,1.72vw,33px)]">
           BACK TO TOP
         </span>
-        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-[#A49B9D] sm:h-14 sm:w-14 lg:h-[80px] lg:w-[80px]">
-          <svg
+        <span className="flex h-11 w-11 items-center justify-center rounded-full bg-black sm:h-14 sm:w-14 lg:h-[80px] lg:w-[80px]">
+                    <svg
             viewBox="0 0 38 38"
             fill="none"
             aria-hidden="true"
@@ -51,17 +55,19 @@ export default function Footer() {
       </button>
 
       {/* Main content sits above the image and tint */}
-      <div className="relative z-10 flex flex-col gap-10 sm:gap-14 lg:gap-[90px]">
-        <div className="flex flex-col gap-6 sm:gap-10 lg:gap-[90px]">
+            <div className="relative z-10 flex flex-col gap-10 sm:gap-14 lg:gap-[40px]">
+        <div className="flex flex-col gap-6 sm:gap-10 lg:gap-[40px]">
           <h2 className="font-satoshi text-[clamp(2.75rem,12vw,5rem)] font-medium leading-[1.06] text-black lg:text-[clamp(5rem,7.34vw,141px)]">
             LET’S TALK
           </h2>
 
           <div className="flex flex-wrap items-start gap-x-6 gap-y-4 sm:gap-x-[35px]">
             {links.map((l) => (
-              <a
+                            <a
                 key={l.label}
                 href={l.href}
+                target={l.newTab ? "_blank" : undefined}
+                rel={l.newTab ? "noopener noreferrer" : undefined}
                 className="w-fit border-b border-black pb-2 font-satoshi text-base font-normal leading-[1.6] tracking-[0.02em] text-black no-underline sm:pb-3 sm:text-xl lg:pb-[20px] lg:text-[22px] lg:leading-[58px]"
               >
                 {l.label}

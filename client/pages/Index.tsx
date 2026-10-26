@@ -4,6 +4,7 @@ import HeroSlideshow from "@/components/portfolio/HeroSlideshow";
 import HelixGallery from "@/components/portfolio/HelixGallery";
 import { Link } from "react-router-dom";
 import FlowButton from "@/components/ui/flow-button";
+import { Typewriter } from "@/components/ui/typewriter-text";
 
 const VINYL_IMG =
   "https://api.builder.io/api/v1/image/assets/TEMP/ab9bf6eee4fafd16c856cf6e47db1fa9057ad71a?width=700";
@@ -13,16 +14,19 @@ const vinylItems = [
     title: "UI/UX INTERN",
     copy: "4-month internship focused on designing digital interfaces, user flows, and product experiences.",
     offset: "",
+    audio: "/audio/jazz-1.mp3",
   },
   {
     title: "UI/UX INTERN",
     copy: "6-month internship working across product interfaces, design systems, and usability.",
     offset: "",
+    audio: "/audio/jazz-2.mp3",
   },
   {
     title: "DESIGN LEAD",
     copy: "Exploring product design through college society projects, design systems, and interface experiments.",
     offset: "",
+    audio: "/audio/jazz-3.mp3",
   },
 ];
 
@@ -38,20 +42,85 @@ function VinylCard({
   title,
   copy,
   offset,
+  audio,
+  playing,
+  onPlayChange,
 }: {
   title: string;
   copy: string;
   offset: string;
+  audio: string;
+  playing: boolean;
+  onPlayChange: (play: boolean) => void;
 }) {
+  const audioRef = React.useRef<HTMLAudioElement>(null);
+
+  // Play or pause (with a short fade) whenever `playing` changes.
+  React.useEffect(() => {
+    const el = audioRef.current;
+    if (!el) return;
+
+    const TARGET_VOLUME = 0.7;
+    let raf = 0;
+
+    const fadeTo = (to: number, done?: () => void) => {
+      const from = el.volume;
+      const start = performance.now();
+      const step = (now: number) => {
+        const t = Math.min(1, (now - start) / 400);
+        el.volume = from + (to - from) * t;
+        if (t < 1) raf = requestAnimationFrame(step);
+        else done?.();
+      };
+      raf = requestAnimationFrame(step);
+    };
+
+    if (playing) {
+      if (el.paused) el.volume = 0;
+      el.play()
+        .then(() => fadeTo(TARGET_VOLUME))
+        // Browsers block sound until the visitor has clicked or tapped the page once.
+        .catch(() => onPlayChange(false));
+    } else if (!el.paused) {
+      fadeTo(0, () => el.pause());
+    }
+
+    return () => cancelAnimationFrame(raf);
+  }, [playing]);
+
+  // Stop the music if this card leaves the page.
+  React.useEffect(() => {
+    const el = audioRef.current;
+    return () => el?.pause();
+  }, []);
+
   return (
     <div
       className={`flex w-full max-w-[350px] flex-col items-start gap-6 sm:gap-8 ${offset}`}
     >
-            <img
+      <img
         src={VINYL_IMG}
         alt=""
-        className="vinyl-spin aspect-square w-40 rounded-full object-cover sm:w-52 lg:w-full"
+        role="button"
+        tabIndex={0}
+        aria-pressed={playing}
+        aria-label={`Play music: ${title}`}
+        draggable={false}
+        onPointerEnter={(e) => e.pointerType === "mouse" && onPlayChange(true)}
+        onPointerLeave={(e) => e.pointerType === "mouse" && onPlayChange(false)}
+        onPointerUp={(e) => {
+          // Touch and pen have no hover, so a tap toggles the music.
+          if (e.pointerType !== "mouse") onPlayChange(!playing);
+        }}
+        onKeyDown={(e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            onPlayChange(!playing);
+          }
+        }}
+        className={`vinyl-spin ${playing ? "is-playing" : ""} aspect-square w-40 rounded-full object-cover sm:w-52 lg:w-full`}
       />
+      <audio ref={audioRef} src={audio} loop preload="none" />
 
       <div className="flex flex-col gap-2 text-center sm:gap-4">
         <h3 className="font-satoshi text-2xl font-medium tracking-[0.05em] text-black sm:text-4xl lg:text-[38px]">
@@ -65,6 +134,7 @@ function VinylCard({
     </div>
   );
 }
+
 
 function DesignSystemCard({
   top,
@@ -169,15 +239,22 @@ const projectSlides = [
 ];
 
 export default function Index() {
+
+  const [activeVinyl, setActiveVinyl] = React.useState<number | null>(null);
   return (
     <div className="min-h-screen overflow-x-hidden bg-portfolio-bg">
       <SiteNav />
 
 <main id="home" className="flex flex-col gap-32 px-6 pb-[100px] sm:px-10 md:gap-40 lg:gap-[162px] lg:px-20">        {/* Hero */}
         <section className="flex flex-col gap-16">
-          <h1 className="-ml-1 font-melodrama text-[3.5rem] font-medium leading-none tracking-wide text-portfolio-ink sm:-ml-5 sm:text-[6rem] md:text-[9rem] lg:-ml-[60px] lg:text-[14.25rem]">
-            PORTFOLIO
-          </h1>
+          <h1
+  aria-label="PORTFOLIO"
+  className="-ml-1 font-melodrama text-[3.5rem] font-medium leading-none tracking-wide text-portfolio-ink sm:-ml-5 sm:text-[6rem] md:text-[9rem] lg:-ml-[60px] lg:text-[14.25rem]"
+>
+  <span aria-hidden="true">
+    <Typewriter text="PORTFOLIO" speed={140} />
+  </span>
+</h1>
 
           <div className="flex flex-col gap-16 lg:flex-row lg:items-start lg:gap-12">
             <HeroSlideshow className="h-[280px] w-full rounded-tr-[60px] rounded-bl-[30px] sm:h-[420px] lg:-ml-20 lg:h-[667px] lg:flex-1 lg:rounded-none lg:rounded-tr-[100px] lg:rounded-br-[50px]" />
@@ -202,15 +279,26 @@ className="h-full w-full object-cover object-center"                />
           </div>
         </section>
 
+
         {/* Experience: vinyl records */}
         <section
           id="experience"
           className="flex flex-col items-center gap-16 sm:flex-row sm:flex-wrap sm:justify-center lg:justify-between lg:gap-8"
         >
-          {vinylItems.map((item, i) => (
-            <VinylCard key={i} {...item} />
+                    {vinylItems.map((item, i) => (
+            <VinylCard
+              key={i}
+              {...item}
+              playing={activeVinyl === i}
+              onPlayChange={(play) =>
+                setActiveVinyl((current) =>
+                  play ? i : current === i ? null : current,
+                )
+              }
+            />
           ))}
         </section>
+
 
                 {/* Projects */}
 <section className="-mx-6 flex flex-col gap-6 sm:-mx-10 lg:-mx-20 lg:flex-row lg:gap-0">
