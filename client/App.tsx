@@ -17,6 +17,7 @@ import ProjectsDetail3 from "./pages/ProjectsDetail3";
 import Layout from "@/components/portfolio/Layout";
 import AboutMe from "./pages/aboutme";
 import NotFound from "./pages/NotFound";
+import { Analytics } from "@vercel/analytics/react";
 import Cursor from "@/components/ui/inverted-cursor";
 
 const queryClient = new QueryClient();
@@ -26,8 +27,9 @@ const App = () => (
     <TooltipProvider>
       <Toaster />
       <Sonner />
-            <BrowserRouter>
+                  <BrowserRouter>
         <Cursor />
+        <Analytics />
         <Routes>
   <Route element={<Layout />}>
     <Route path="/" element={<Index />} />
